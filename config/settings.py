@@ -43,7 +43,19 @@ INSTALLED_APPS = [
     'core',
     'tenants',
     'users',
+    #'rest_framework_authtoken' #django ka framweork 
+    'rest_framework_simplejwt',
+
+
 ]
+
+REST_FRAMEWORK = {
+
+     'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
