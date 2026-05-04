@@ -53,7 +53,24 @@ REST_FRAMEWORK = {
 
      'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+        
+    ),
+  
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.UserRateThrottle',
+        'rest_framework.throttling.AnonRateThrottle',
+    ],
+     
+    'DEFAULT_THROTTLE_RATES': {
+        'user': '10/min',   # logged-in users
+        'anon': '5/min',    # without token
+        'login': '3/min'    # login strict
+    },
+
+
+'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+'PAGE_SIZE': 5,
+    
 }
 
 
