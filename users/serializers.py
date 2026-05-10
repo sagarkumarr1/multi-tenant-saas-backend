@@ -34,3 +34,6 @@ class BulkUserActionSerializer(serializers.Serializer):
         child=serializers.IntegerField(min_value=1),
         min_length=1
     )
+
+class LogoutSerializer(serializers.Serializer):
+    refresh = serializers.CharField(help_text="Refresh token to blacklist")

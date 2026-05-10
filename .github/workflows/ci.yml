@@ -1,8 +1,5 @@
 name: CI — Run Tests
 
-# Kab chalega yeh workflow:
-# 1. Jab bhi koi code push karo (kisi bhi branch pe)
-# 2. Jab bhi Pull Request banao main/master branch ke liye
 on:
   push:
     branches: ["**"]
@@ -15,29 +12,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1 — Code checkout karo
+      # Step 1 — Code checkout 
       - name: 📥 Checkout code
         uses: actions/checkout@v4
 
-      # Step 2 — Python setup karo
+      # Step 2 — Python setup 
       - name: 🐍 Set up Python 3.12
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-          cache: "pip"  # Dependencies cache hogi — fast build
+          cache: "pip"  # Dependencies cache  — fast build
 
-      # Step 3 — Dependencies install karo
+      # Step 3 — Install Dependencies 
       - name: 📦 Install dependencies
         run: pip install -r requirements.txt pytest pytest-django
 
-      # Step 4 — Tests run karo
-      # Env variables set karo — .env file CI mein nahi hoti
+      # Step 4 — Tests run 
+      # Set Env variables  — .env file
       - name: ✅ Run tests
         env:
           SECRET_KEY: "ci-test-secret-key-not-for-production"
           DEBUG: "True"
           ALLOWED_HOSTS: "localhost,127.0.0.1"
-          # PostgreSQL nahi chahiye — settings_test.py SQLite use karta hai
+          # PostgreSQL 
           DB_NAME: "test_db"
           DB_USER: "postgres"
           DB_PASSWORD: "test"
@@ -45,7 +42,7 @@ jobs:
           DB_PORT: "5432"
         run: pytest users/tests.py -v
 
-      # Step 5 — Summary dikhao
+      # Step 5 — Show Summary 
       - name: 📊 Test Summary
         if: always()
         run: echo "Tests complete — check logs above for details"

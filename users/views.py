@@ -414,3 +414,33 @@ class DashboardView(APIView):
                 "users": users.filter(role=User.USER_ROLE).count(),
             }
         })
+
+
+# ─────────────────────────────────────────────
+# LOGOUT — Refresh token blacklist 
+# ─────────────────────────────────────────────
+class LogoutView(APIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        from .serializers import LogoutSerializer
+        from rest_framework_simplejwt.tokens import RefreshToken
+        from rest_framework_simplejwt.exceptions import TokenError
+
+        serializer = LogoutSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        try:
+            # Refresh token ko blacklist karo — ab ye token kaam nahi karega
+            token = RefreshToken(serializer.validated_data['refresh'])
+            token.blacklist()
+            return Response(
+                {"message": "Logged out successfully. Token has been blacklisted."},
+                status=status.HTTP_200_OK
+            )
+        except TokenError:
+            return Response(
+                {"error": "Invalid or already blacklisted token."},
+                status=status.HTTP_400_BAD_REQUEST
+            )

@@ -1,4 +1,4 @@
-# Test-only settings — SQLite use karo, PostgreSQL ki zarurat nahi
+# Test-only settings — SQLite Use, PostgreSQL Not Required
 from config.settings import *
 
 # Override DB to SQLite in-memory for fast, isolated tests
