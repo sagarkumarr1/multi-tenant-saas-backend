@@ -1,41 +1,55 @@
 <div align="center">
+
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:1a6fff,100:00d4ff&height=200&section=header&text=Multi-Tenant%20SaaS%20Backend&fontSize=40&fontColor=ffffff&fontAlignY=38&desc=Production-Grade%20REST%20API%20%7C%20Django%20REST%20Framework&descAlignY=58&descSize=16" width="100%"/>
+
 <br/>
-![Django](https://img.shields.io/badge/Django-6.0.4-092E20?style=for-the-badge&logo=django&logoColor=white)
-![DRF](https://img.shields.io/badge/DRF-3.17.1-E53935?style=for-the-badge&logo=django&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Tests](https://img.shields.io/badge/Tests-45%20Passing-00C853?style=for-the-badge&logo=pytest&logoColor=white)
-![CI](https://img.shields.io/badge/CI-GitHub%20Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
-![Live](https://img.shields.io/badge/Live-Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
+
+[![Django](https://img.shields.io/badge/Django-6.0.4-092E20?style=for-the-badge&logo=django&logoColor=white)](https://djangoproject.com)
+[![DRF](https://img.shields.io/badge/DRF-3.17.1-E53935?style=for-the-badge&logo=django&logoColor=white)](https://www.django-rest-framework.org)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://postgresql.org)
+[![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![Tests](https://img.shields.io/badge/Tests-45%20Passing-00C853?style=for-the-badge&logo=pytest&logoColor=white)](#-running-tests)
+[![CI](https://img.shields.io/badge/CI-GitHub%20Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)](https://github.com/sagarkumarr1/multi-tenant-saas-backend/actions)
+[![Live](https://img.shields.io/badge/Live-Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://multi-tenant-saas-backend-x74a.onrender.com/api/docs/)
+[![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
+
 <br/>
-🔗 Quick Links
-📖 Live Swagger Docs  · 
-📄 ReDoc  · 
-🐛 Report Bug  · 
-⭐ Star this repo
+
+### 🔗 Quick Links
+[📖 **Live Swagger Docs**](https://multi-tenant-saas-backend-x74a.onrender.com/api/docs/) &nbsp;·&nbsp;
+[📄 **ReDoc**](https://multi-tenant-saas-backend-x74a.onrender.com/api/redoc/) &nbsp;·&nbsp;
+[🐛 **Report Bug**](https://github.com/sagarkumarr1/multi-tenant-saas-backend/issues) &nbsp;·&nbsp;
+[⭐ **Star this repo**](https://github.com/sagarkumarr1/multi-tenant-saas-backend)
+
 </div>
+
 ---
-📌 Table of Contents
-🎯 Project Overview
-✨ Key Highlights
-🏗️ Architecture Diagram
-🔐 Authentication Flow
-🏢 Tenant Isolation
-🎭 RBAC Explanation
-🗄️ Database Schema / ER Diagram
-📡 API Endpoints
-🖼️ Screenshots
-⚙️ Environment Setup
-🚀 Deployment Guide
-🧪 Running Tests
-📁 Project Structure
-🛠️ Tech Stack
+
+## 📌 Table of Contents
+
+- [🎯 Project Overview](#-project-overview)
+- [✨ Key Highlights](#-key-highlights)
+- [🏗️ Architecture Diagram](#️-architecture-diagram)
+- [🔐 Authentication Flow](#-authentication-flow)
+- [🏢 Tenant Isolation](#-tenant-isolation)
+- [🎭 RBAC Explanation](#-rbac--role-based-access-control)
+- [🗄️ Database Schema / ER Diagram](#️-database-schema--er-diagram)
+- [📡 API Endpoints](#-api-endpoints)
+- [🖼️ Screenshots](#️-screenshots)
+- [⚙️ Environment Setup](#️-environment-setup)
+- [🚀 Deployment Guide](#-deployment-guide)
+- [🧪 Running Tests](#-running-tests)
+- [📁 Project Structure](#-project-structure)
+- [🛠️ Tech Stack](#️-tech-stack)
+
 ---
-🎯 Project Overview
+
+## 🎯 Project Overview
+
 > A **production-ready multi-tenant SaaS backend** where multiple organizations share the same infrastructure but have **completely isolated data**. Built with security-first principles — every endpoint authenticated, tenant-scoped, and role-protected.
-This project solves a real-world problem: how to build a single backend that serves many companies (tenants) without any data leakage between them. Companies like Slack, Notion, and Jira all use this architecture.
+
+This project solves a real-world problem: **how to build a single backend that serves many companies (tenants) without any data leakage between them.** Companies like Slack, Notion, and Jira all use this architecture.
+
 ```
 Company A employees → can only see Company A's users
 Company B employees → can only see Company B's users
@@ -43,64 +57,81 @@ Company B employees → can only see Company B's users
     Same codebase          Same database
     Different data         Zero crossover
 ```
-✅ What's Implemented
-Category	Feature	Status
-Auth	JWT Login with access + refresh tokens	✅
-Auth	Server-side logout via token blacklist	✅
-Auth	Rate limiting — 3 login attempts/min	✅
-Multi-tenancy	Complete data isolation between orgs	✅
-Multi-tenancy	Cross-tenant attack prevention	✅
-RBAC	3-tier roles — Admin, Manager, User	✅
-RBAC	Object-level permissions	✅
-Users	Soft delete — deactivate, never hard-delete	✅
-Users	Restore deleted users	✅
-Users	Bulk delete & bulk restore	✅
-Users	Search, filter by role, sort, paginate	✅
-Audit	Full audit log — who did what, when	✅
-Dashboard	Live tenant stats by role	✅
-Docs	Auto-generated Swagger / ReDoc	✅
-Testing	45 tests — login, isolation, CRUD, bulk	✅
-CI/CD	GitHub Actions on every push	✅
-Deploy	Live on Render with PostgreSQL	✅
+
+### ✅ What's Implemented
+
+| Category | Feature | Status |
+|---|---|:---:|
+| **Auth** | JWT Login with access + refresh tokens | ✅ |
+| **Auth** | Server-side logout via token blacklist | ✅ |
+| **Auth** | Rate limiting — 3 login attempts/min | ✅ |
+| **Multi-tenancy** | Complete data isolation between orgs | ✅ |
+| **Multi-tenancy** | Cross-tenant attack prevention | ✅ |
+| **RBAC** | 3-tier roles — Admin, Manager, User | ✅ |
+| **RBAC** | Object-level permissions | ✅ |
+| **Users** | Soft delete — deactivate, never hard-delete | ✅ |
+| **Users** | Restore deleted users | ✅ |
+| **Users** | Bulk delete & bulk restore | ✅ |
+| **Users** | Search, filter by role, sort, paginate | ✅ |
+| **Audit** | Full audit log — who did what, when | ✅ |
+| **Dashboard** | Live tenant stats by role | ✅ |
+| **Docs** | Auto-generated Swagger / ReDoc | ✅ |
+| **Testing** | 45 tests — login, isolation, CRUD, bulk | ✅ |
+| **CI/CD** | GitHub Actions on every push | ✅ |
+| **Deploy** | Live on Render with PostgreSQL | ✅ |
+
 ---
-✨ Key Highlights
+
+## ✨ Key Highlights
+
 <table>
 <tr>
 <td width="50%">
-🔒 Security First
-Secrets via `.env` — never in code
-JWT blacklist logout
-Brute-force protection
-Cross-tenant isolation at DB level
-Object-level permissions
+
+### 🔒 Security First
+- Secrets via `.env` — never in code
+- JWT blacklist logout
+- Brute-force protection
+- Cross-tenant isolation at DB level
+- Object-level permissions
+
 </td>
 <td width="50%">
-🏗️ Clean Architecture
-Custom `AbstractUser` model
-Serializer-level input validation
-`select_related()` to prevent N+1 queries
-Separation of concerns across apps
-Test settings isolated from production
+
+### 🏗️ Clean Architecture
+- Custom `AbstractUser` model
+- Serializer-level input validation
+- `select_related()` to prevent N+1 queries
+- Separation of concerns across apps
+- Test settings isolated from production
+
 </td>
 </tr>
 <tr>
 <td width="50%">
-📋 Audit Ready
-Every delete, restore, role change logged
-`AuditLog` records: actor + target + action + time
-Cannot be bypassed — writes in every view
+
+### 📋 Audit Ready
+- Every delete, restore, role change logged
+- `AuditLog` records: actor + target + action + time
+- Cannot be bypassed — writes in every view
+
 </td>
 <td width="50%">
-🧪 Fully Tested
-45 tests across 5 test classes
-Tenant isolation tested explicitly
-Permission matrix tested for all 3 roles
-CI runs on every `git push`
+
+### 🧪 Fully Tested
+- 45 tests across 5 test classes
+- Tenant isolation tested explicitly
+- Permission matrix tested for all 3 roles
+- CI runs on every `git push`
+
 </td>
 </tr>
 </table>
+
 ---
-🏗️ Architecture Diagram
+
+## 🏗️ Architecture Diagram
+
 ```
 ╔══════════════════════════════════════════════════════════════════╗
 ║                        CLIENT LAYER                              ║
@@ -170,9 +201,13 @@ CI runs on every `git push`
 ║   └──────────────────────────────────────────────────────────┘  ║
 ╚══════════════════════════════════════════════════════════════════╝
 ```
+
 ---
-🔐 Authentication Flow
-Login → Access Protected Resource
+
+## 🔐 Authentication Flow
+
+### Login → Access Protected Resource
+
 ```mermaid
 sequenceDiagram
     participant C as Client
@@ -210,7 +245,9 @@ sequenceDiagram
     DB-->>A: Token is blacklisted!
     A-->>C: 401 Unauthorized
 ```
-ASCII Version (for environments without Mermaid)
+
+### ASCII Version (for environments without Mermaid)
+
 ```
 Client                      API Server                  Database
   │                              │                           │
@@ -232,11 +269,17 @@ Client                      API Server                  Database
   │   { refresh: "eyJ..." }      │── Blacklist token ───────►│
   │◄── 200 "Logged out" ─────────│◄── Confirmed ─────────────│
 ```
+
 ---
-🏢 Tenant Isolation
+
+## 🏢 Tenant Isolation
+
 > **The core security guarantee:** A user from Tenant A can **never** read, modify, or delete data belonging to Tenant B — regardless of their role.
-How It's Enforced
-Every query that touches user data is automatically scoped to the requesting user's tenant at the database level — not just filtered in Python:
+
+### How It's Enforced
+
+Every query that touches user data is automatically scoped to the requesting user's tenant at the **database level** — not just filtered in Python:
+
 ```python
 # ❌ VULNERABLE — No tenant isolation
 users = User.objects.filter(id__in=user_ids)
@@ -246,16 +289,21 @@ users = User.objects.filter(id__in=user_ids)
 users = User.objects.filter(id__in=user_ids, tenant=request.user.tenant)
 # Tenant A's IDs simply return empty for Tenant B → no data exposed
 ```
-Enforcement Points (Every Single One)
-View	Method	Isolation
-`UserListView`	`GET`	`filter(tenant=request.user.tenant)`
-`UserDetailView`	`GET PATCH DELETE`	`get_object_or_404(User, id=id, tenant=...)` via `IsOwnerOrAdmin`
-`RestoreUserView`	`POST`	`get_object_or_404(User, id=id, tenant=request.user.tenant)`
-`ChangeUserRoleView`	`POST`	`get_object_or_404(User, id=id, tenant=request.user.tenant)`
-`BulkDeleteUserView`	`POST`	`filter(id__in=ids, tenant=request.user.tenant)`
-`BulkRestoreUserView`	`POST`	`filter(id__in=ids, tenant=request.user.tenant)`
-`DashboardView`	`GET`	`filter(tenant=request.user.tenant)`
-Visual Model
+
+### Enforcement Points (Every Single One)
+
+| View | Method | Isolation |
+|---|---|---|
+| `UserListView` | `GET` | `filter(tenant=request.user.tenant)` |
+| `UserDetailView` | `GET PATCH DELETE` | `get_object_or_404(User, id=id, tenant=...)` via `IsOwnerOrAdmin` |
+| `RestoreUserView` | `POST` | `get_object_or_404(User, id=id, tenant=request.user.tenant)` |
+| `ChangeUserRoleView` | `POST` | `get_object_or_404(User, id=id, tenant=request.user.tenant)` |
+| `BulkDeleteUserView` | `POST` | `filter(id__in=ids, tenant=request.user.tenant)` |
+| `BulkRestoreUserView` | `POST` | `filter(id__in=ids, tenant=request.user.tenant)` |
+| `DashboardView` | `GET` | `filter(tenant=request.user.tenant)` |
+
+### Visual Model
+
 ```
 ┌──────────────────────────────┐     ┌──────────────────────────────┐
 │          TENANT A            │     │          TENANT B            │
@@ -277,7 +325,9 @@ Visual Model
           Result: ─────────────────────────────────► 404 Not Found ✅
                   User 6 is completely safe.
 ```
-What Happens in a Real Cross-Tenant Attack
+
+### What Happens in a Real Cross-Tenant Attack
+
 ```bash
 # Attacker: Admin of Tenant A
 # Target: User id=99 from Tenant B
@@ -289,9 +339,13 @@ curl -X DELETE https://api.example.com/api/user/99/ \
 # {  }
 # Attacker gets NO information that user 99 even exists
 ```
+
 ---
-🎭 RBAC — Role-Based Access Control
-Role Hierarchy
+
+## 🎭 RBAC — Role-Based Access Control
+
+### Role Hierarchy
+
 ```
                     ┌─────────────────────┐
                     │       ADMIN         │
@@ -311,25 +365,30 @@ Role Hierarchy
    │  Self-access only   │
    └─────────────────────┘
 ```
-Permission Matrix
-Action	👑 Admin	👔 Manager	👤 User
-Login / Logout	✅	✅	✅
-View own profile	✅	✅	✅
-Update own username	✅	✅	✅
-View all tenant users	✅	❌	❌
-View own created users	✅	✅	❌
-Create new user	✅	✅	❌
-Delete any user	✅	❌	❌
-Delete own created users	✅	✅	❌
-Restore any user	✅	❌	❌
-Restore own created users	✅	✅	❌
-Change user role	✅	❌	❌
-Bulk delete	✅	✅ own only	❌
-Bulk restore	✅	✅ own only	❌
-View dashboard	✅	✅	❌
-Delete self	❌	❌	❌
-Change own role	❌	❌	❌
-Permission Classes (Source Code)
+
+### Permission Matrix
+
+| Action | 👑 Admin | 👔 Manager | 👤 User |
+|---|:---:|:---:|:---:|
+| Login / Logout | ✅ | ✅ | ✅ |
+| View own profile | ✅ | ✅ | ✅ |
+| Update own username | ✅ | ✅ | ✅ |
+| View **all** tenant users | ✅ | ❌ | ❌ |
+| View **own created** users | ✅ | ✅ | ❌ |
+| Create new user | ✅ | ✅ | ❌ |
+| Delete **any** user | ✅ | ❌ | ❌ |
+| Delete **own created** users | ✅ | ✅ | ❌ |
+| Restore **any** user | ✅ | ❌ | ❌ |
+| Restore **own created** users | ✅ | ✅ | ❌ |
+| Change user role | ✅ | ❌ | ❌ |
+| Bulk delete | ✅ | ✅ own only | ❌ |
+| Bulk restore | ✅ | ✅ own only | ❌ |
+| View dashboard | ✅ | ✅ | ❌ |
+| Delete **self** | ❌ | ❌ | ❌ |
+| Change **own** role | ❌ | ❌ | ❌ |
+
+### Permission Classes (Source Code)
+
 ```python
 # permissions.py
 
@@ -355,9 +414,13 @@ class IsOwnerOrAdmin(BasePermission):
             return obj.created_by == request.user
         return False
 ```
+
 ---
-🗄️ Database Schema / ER Diagram
-Mermaid ER Diagram
+
+## 🗄️ Database Schema / ER Diagram
+
+### Mermaid ER Diagram
+
 ```mermaid
 erDiagram
     TENANT {
@@ -408,7 +471,9 @@ erDiagram
     USER ||--o{ OUTSTANDINGTOKEN : "issued to"
     OUTSTANDINGTOKEN ||--o| BLACKLISTEDTOKEN : "blacklisted as"
 ```
-ASCII ER Diagram (GitHub fallback)
+
+### ASCII ER Diagram (GitHub fallback)
+
 ```
 ┌─────────────────────┐
 │       TENANT        │
@@ -443,35 +508,45 @@ ASCII ER Diagram (GitHub fallback)
 │  refresh tokens server-side         │
 └─────────────────────────────────────┘
 ```
-Schema Design Decisions
-Decision	Reason
-`AbstractUser` extended, not replaced	Keeps Django's auth system — passwords, sessions, admin all work
-`is_active = False` for delete	Data never lost — fully restorable, audit trail preserved
-`created_by` self-FK on User	Enables Manager-scoped queries without extra tables
-`db_index=True` on `created_by`	Fast lookup: "all users this manager created"
-`max_length=20` on `role`	"MANAGER" is 7 chars — leaves room for future roles
-`max_length=100` on `action`	"CHANGE_ROLE_TO_MANAGER" = 22 chars — safe buffer
+
+### Schema Design Decisions
+
+| Decision | Reason |
+|---|---|
+| `AbstractUser` extended, not replaced | Keeps Django's auth system — passwords, sessions, admin all work |
+| `is_active = False` for delete | Data never lost — fully restorable, audit trail preserved |
+| `created_by` self-FK on User | Enables Manager-scoped queries without extra tables |
+| `db_index=True` on `created_by` | Fast lookup: "all users this manager created" |
+| `max_length=20` on `role` | "MANAGER" is 7 chars — leaves room for future roles |
+| `max_length=100` on `action` | "CHANGE_ROLE_TO_MANAGER" = 22 chars — safe buffer |
+
 ---
-📡 API Endpoints
-Base URL: `https://multi-tenant-saas-backend-x74a.onrender.com/api/`
-#	Method	Endpoint	Auth	Role	Description
-1	`POST`	`/user/login/`	❌	Public	Get JWT tokens
-2	`POST`	`/user/logout/`	✅	Any	Blacklist refresh token
-3	`POST`	`/user/register/`	✅	Admin / Mgr	Create user in tenant
-4	`GET`	`/user/profile/`	✅	Any	Own profile + role
-5	`GET`	`/user/`	✅	Admin / Mgr	List users (search, filter, sort)
-6	`GET`	`/user/{id}/`	✅	Owner / Admin	User detail
-7	`PATCH`	`/user/{id}/`	✅	Owner / Admin	Update username
-8	`DELETE`	`/user/{id}/`	✅	Admin / Mgr	Soft delete
-9	`POST`	`/user/{id}/restore/`	✅	Admin / Mgr	Restore deleted user
-10	`POST`	`/user/{id}/change-role/`	✅	Admin only	Change role
-11	`POST`	`/user/bulk-delete/`	✅	Admin / Mgr	Delete multiple
-12	`POST`	`/user/bulk-restore/`	✅	Admin / Mgr	Restore multiple
-13	`GET`	`/dashboard/`	✅	Admin / Mgr	Live tenant stats
-14	`GET`	`/api/schema/`	❌	Public	OpenAPI 3.0 JSON
-15	`GET`	`/api/docs/`	❌	Public	Swagger UI
-16	`GET`	`/api/redoc/`	❌	Public	ReDoc UI
-Query Parameters (User List)
+
+## 📡 API Endpoints
+
+**Base URL:** `https://multi-tenant-saas-backend-x74a.onrender.com/api/`
+
+| # | Method | Endpoint | Auth | Role | Description |
+|:---:|:---:|---|:---:|:---:|---|
+| 1 | `POST` | `/user/login/` | ❌ | Public | Get JWT tokens |
+| 2 | `POST` | `/user/logout/` | ✅ | Any | Blacklist refresh token |
+| 3 | `POST` | `/user/register/` | ✅ | Admin / Mgr | Create user in tenant |
+| 4 | `GET` | `/user/profile/` | ✅ | Any | Own profile + role |
+| 5 | `GET` | `/user/` | ✅ | Admin / Mgr | List users (search, filter, sort) |
+| 6 | `GET` | `/user/{id}/` | ✅ | Owner / Admin | User detail |
+| 7 | `PATCH` | `/user/{id}/` | ✅ | Owner / Admin | Update username |
+| 8 | `DELETE` | `/user/{id}/` | ✅ | Admin / Mgr | Soft delete |
+| 9 | `POST` | `/user/{id}/restore/` | ✅ | Admin / Mgr | Restore deleted user |
+| 10 | `POST` | `/user/{id}/change-role/` | ✅ | Admin only | Change role |
+| 11 | `POST` | `/user/bulk-delete/` | ✅ | Admin / Mgr | Delete multiple |
+| 12 | `POST` | `/user/bulk-restore/` | ✅ | Admin / Mgr | Restore multiple |
+| 13 | `GET` | `/dashboard/` | ✅ | Admin / Mgr | Live tenant stats |
+| 14 | `GET` | `/api/schema/` | ❌ | Public | OpenAPI 3.0 JSON |
+| 15 | `GET` | `/api/docs/` | ❌ | Public | Swagger UI |
+| 16 | `GET` | `/api/redoc/` | ❌ | Public | ReDoc UI |
+
+### Query Parameters (User List)
+
 ```bash
 GET /api/user/?search=john          # Username contains "john"
 GET /api/user/?role=MANAGER         # Filter by role
@@ -480,9 +555,11 @@ GET /api/user/?ordering=-created_at # Sort newest first (default)
 GET /api/user/?page=2               # Page 2 (5 per page)
 GET /api/user/?search=john&role=USER&ordering=username&page=1  # Combined
 ```
+
 <details>
 <summary><b>📋 All Request / Response Examples (Click to expand)</b></summary>
-POST /api/user/login/
+
+### POST /api/user/login/
 ```json
 // Request
 { "username": "sagar", "password": "yourpassword" }
@@ -496,7 +573,8 @@ POST /api/user/login/
 // 429 Too Many Requests (brute-force protection)
 { "detail": "Request was throttled. Expected available in 60 seconds." }
 ```
-POST /api/user/logout/
+
+### POST /api/user/logout/
 ```json
 // Request (with Authorization: Bearer <access_token>)
 { "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI..." }
@@ -507,7 +585,8 @@ POST /api/user/logout/
 // 400 Bad Request (already used)
 { "error": "Invalid or already blacklisted token." }
 ```
-GET /api/user/
+
+### GET /api/user/
 ```json
 // 200 OK
 {
@@ -520,7 +599,8 @@ GET /api/user/
   ]
 }
 ```
-POST /api/user/bulk-delete/
+
+### POST /api/user/bulk-delete/
 ```json
 // Request
 { "user_ids": [3, 7, 12] }
@@ -531,7 +611,8 @@ POST /api/user/bulk-delete/
   "skipped": [{ "username": "yourself", "reason": "Cannot delete yourself" }]
 }
 ```
-GET /api/dashboard/
+
+### GET /api/dashboard/
 ```json
 // 200 OK
 {
@@ -541,7 +622,8 @@ GET /api/dashboard/
   "roles": { "admins": 2, "managers": 5, "users": 18 }
 }
 ```
-POST /api/user/{id}/change-role/
+
+### POST /api/user/{id}/change-role/
 ```json
 // Request
 { "role": "MANAGER" }
@@ -555,33 +637,43 @@ POST /api/user/{id}/change-role/
 // 404 Not Found (cross-tenant attempt)
 { "detail": "No User matches the given query." }
 ```
+
 </details>
+
 ---
-🖼️ Screenshots
-Swagger UI — API Documentation
+
+## 🖼️ Screenshots
+
+### Swagger UI — API Documentation
 > 📸 **Add Screenshot:** Visit `/api/docs/`, take a screenshot showing endpoint list
 > 
 > ![Swagger UI](screenshots/swagger-ui.png)
-Login Endpoint — Postman
+
+### Login Endpoint — Postman
 > 📸 **Add Screenshot:** POST `/api/user/login/` with body and 200 response
 >
 > ![Login](screenshots/postman-login.png)
-User List — Paginated Response
+
+### User List — Paginated Response
 > 📸 **Add Screenshot:** GET `/api/user/` showing paginated JSON response
 >
 > ![User List](screenshots/postman-user-list.png)
-Dashboard — Stats Response
+
+### Dashboard — Stats Response
 > 📸 **Add Screenshot:** GET `/api/dashboard/` showing stats JSON
 >
 > ![Dashboard](screenshots/postman-dashboard.png)
-GitHub Actions — CI Tests Passing
+
+### GitHub Actions — CI Tests Passing
 > 📸 **Add Screenshot:** GitHub → Actions tab → green checkmark
 >
 > ![CI Tests](screenshots/github-actions.png)
-Django Admin Panel
+
+### Django Admin Panel
 > 📸 **Add Screenshot:** `/admin/` showing Tenants, Users, AuditLogs
 >
 > ![Admin Panel](screenshots/django-admin.png)
+
 > 💡 **To add screenshots:**
 > ```bash
 > mkdir screenshots
@@ -589,15 +681,21 @@ Django Admin Panel
 > git add screenshots/
 > git commit -m "docs: add API screenshots"
 > ```
+
 ---
-⚙️ Environment Setup
-Prerequisites
+
+## ⚙️ Environment Setup
+
+### Prerequisites
+
 ```
 Python 3.12+     → python --version
 PostgreSQL 14+   → psql --version
 Git              → git --version
 ```
-Step 1 — Clone & Virtual Environment
+
+### Step 1 — Clone & Virtual Environment
+
 ```bash
 git clone https://github.com/sagarkumarr1/multi-tenant-saas-backend.git
 cd multi-tenant-saas-backend
@@ -609,15 +707,21 @@ python -m venv venv
 source venv/bin/activate      # Mac / Linux
 venv\Scripts\activate         # Windows
 ```
-Step 2 — Install Dependencies
+
+### Step 2 — Install Dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
-Step 3 — Environment Variables
+
+### Step 3 — Environment Variables
+
 ```bash
 cp .env.example .env
 ```
+
 Open `.env` and fill in your values:
+
 ```env
 # ─── Django ──────────────────────────────
 SECRET_KEY=your-50-char-random-secret-key-here
@@ -631,11 +735,14 @@ DB_PASSWORD=yourpassword
 DB_HOST=localhost
 DB_PORT=5432
 ```
+
 > 💡 **Generate a strong SECRET_KEY instantly:**
 > ```bash
 > python -c "import secrets; print(secrets.token_urlsafe(50))"
 > ```
-Step 4 — Database Setup
+
+### Step 4 — Database Setup
+
 ```bash
 # Create PostgreSQL database
 psql -U postgres -c "CREATE DATABASE saas_db;"
@@ -647,48 +754,65 @@ python manage.py migrate
 # Create superuser (Django admin access)
 python manage.py createsuperuser
 ```
-Step 5 — Run Development Server
+
+### Step 5 — Run Development Server
+
 ```bash
 python manage.py runserver
 ```
-URL	What
-`http://127.0.0.1:8000/admin/`	Django Admin Panel
-`http://127.0.0.1:8000/api/docs/`	Swagger API Docs
-`http://127.0.0.1:8000/api/redoc/`	ReDoc API Docs
-Step 6 — Initial Tenant Setup
-Open `http://127.0.0.1:8000/admin/`
-Create Tenant: Tenants → Add → `organization_name = "TechCorp"`
-Configure Superuser: Users → your user:
-Set `tenant = TechCorp`
-Set `role = ADMIN`
-Save
-Test Login via Postman:
-```
+
+| URL | What |
+|---|---|
+| `http://127.0.0.1:8000/admin/` | Django Admin Panel |
+| `http://127.0.0.1:8000/api/docs/` | Swagger API Docs |
+| `http://127.0.0.1:8000/api/redoc/` | ReDoc API Docs |
+
+### Step 6 — Initial Tenant Setup
+
+1. Open `http://127.0.0.1:8000/admin/`
+2. **Create Tenant:** Tenants → Add → `organization_name = "TechCorp"`
+3. **Configure Superuser:** Users → your user:
+   - Set `tenant = TechCorp`
+   - Set `role = ADMIN`
+   - Save
+4. **Test Login via Postman:**
+   ```
    POST http://127.0.0.1:8000/api/user/login/
    Body: { "username": "yourusername", "password": "yourpassword" }
    ```
-Copy the `access` token → use as `Authorization: Bearer <token>` in all other requests
+5. Copy the `access` token → use as `Authorization: Bearer <token>` in all other requests
+
 ---
-🚀 Deployment Guide
-Deploy on Render (Free Tier)
-Step 1 — Push to GitHub
+
+## 🚀 Deployment Guide
+
+### Deploy on Render (Free Tier)
+
+#### Step 1 — Push to GitHub
 ```bash
 git add .
 git commit -m "feat: ready for deployment"
 git push origin main
 ```
-Step 2 — Create Web Service
-render.com → New → Web Service
-Connect your GitHub repository
-Configure the service:
-Field	Value
-Name	`multi-tenant-saas-backend`
-Runtime	`Python 3`
-Build Command	`pip install -r requirements.txt`
-Start Command	`gunicorn config.wsgi`
-Plan	Free
-Step 3 — Add Environment Variables
-Render Dashboard → your service → Environment tab:
+
+#### Step 2 — Create Web Service
+
+1. [render.com](https://render.com) → **New → Web Service**
+2. Connect your GitHub repository
+3. Configure the service:
+
+| Field | Value |
+|---|---|
+| **Name** | `multi-tenant-saas-backend` |
+| **Runtime** | `Python 3` |
+| **Build Command** | `pip install -r requirements.txt` |
+| **Start Command** | `gunicorn config.wsgi` |
+| **Plan** | Free |
+
+#### Step 3 — Add Environment Variables
+
+Render Dashboard → your service → **Environment** tab:
+
 ```
 SECRET_KEY      → <generate a new strong key>
 DEBUG           → False
@@ -699,25 +823,34 @@ DB_PASSWORD     → <from Render PostgreSQL>
 DB_HOST         → <from Render PostgreSQL>
 DB_PORT         → 5432
 ```
-Step 4 — Create PostgreSQL on Render
-Render → New → PostgreSQL
-Free tier → Create
-Copy credentials to environment variables above
-Step 5 — Run Migrations
-Render → your service → Shell tab:
+
+#### Step 4 — Create PostgreSQL on Render
+
+1. Render → **New → PostgreSQL**
+2. Free tier → Create
+3. Copy credentials to environment variables above
+
+#### Step 5 — Run Migrations
+
+Render → your service → **Shell** tab:
 ```bash
 python manage.py migrate
 python manage.py createsuperuser
 python manage.py collectstatic --noinput
 ```
-Step 6 — Verify
+
+#### Step 6 — Verify
+
 ```bash
 curl https://your-app.onrender.com/api/docs/
 # Returns Swagger UI ✅
 ```
+
 > ⚠️ **Free tier note:** Render free tier spins down after 15 min of inactivity.
 > First request may take 30–60 seconds to wake up.
-Deployment Checklist
+
+### Deployment Checklist
+
 ```
 [ ] DEBUG=False in production
 [ ] ALLOWED_HOSTS set to your domain only
@@ -727,17 +860,22 @@ Deployment Checklist
 [ ] Static files collected
 [ ] .env is in .gitignore (never committed)
 ```
+
 ---
-🧪 Running Tests
-Install test dependencies
+
+## 🧪 Running Tests
+
+### Install test dependencies
 ```bash
 pip install pytest pytest-django
 ```
-Run all 45 tests
+
+### Run all 45 tests
 ```bash
 pytest users/tests.py -v
 ```
-Run a specific test class
+
+### Run a specific test class
 ```bash
 pytest users/tests.py::LoginTests -v
 pytest users/tests.py::TenantIsolationTests -v
@@ -745,7 +883,8 @@ pytest users/tests.py::PermissionTests -v
 pytest users/tests.py::UserCRUDTests -v
 pytest users/tests.py::LogoutTests -v
 ```
-Expected output
+
+### Expected output
 ```
 users/tests.py::LoginTests::test_valid_login_returns_tokens          PASSED
 users/tests.py::LoginTests::test_wrong_password_returns_401          PASSED
@@ -756,15 +895,20 @@ users/tests.py::TenantIsolationTests::test_bulk_delete_only_affects_own_tenant  
 ...
 ========================= 45 passed in 3.21s =========================
 ```
-Test Coverage by Class
-Class	Count	What's Covered
-`LoginTests`	8	Valid/invalid login, empty fields, token auth, profile fields
-`TenantIsolationTests`	7	Cross-tenant role change, bulk delete/restore, restore — all return 404
-`PermissionTests`	12	All 3 roles tested against every restricted endpoint
-`UserCRUDTests`	13	Soft delete, restore, patch, bulk ops, edge cases, duplicate username
-`LogoutTests`	5	Token blacklist, reuse prevention, unauthenticated, missing fields
-Total	45	
-CI — Automatic on every push
+
+### Test Coverage by Class
+
+| Class | Count | What's Covered |
+|---|:---:|---|
+| `LoginTests` | 8 | Valid/invalid login, empty fields, token auth, profile fields |
+| `TenantIsolationTests` | 7 | Cross-tenant role change, bulk delete/restore, restore — all return 404 |
+| `PermissionTests` | 12 | All 3 roles tested against every restricted endpoint |
+| `UserCRUDTests` | 13 | Soft delete, restore, patch, bulk ops, edge cases, duplicate username |
+| `LogoutTests` | 5 | Token blacklist, reuse prevention, unauthenticated, missing fields |
+| **Total** | **45** | |
+
+### CI — Automatic on every push
+
 ```yaml
 # .github/workflows/ci.yml
 on:
@@ -773,8 +917,11 @@ on:
   pull_request:
     branches: [main]   # Every PR to main
 ```
+
 ---
-📁 Project Structure
+
+## 📁 Project Structure
+
 ```
 multi-tenant-saas-backend/
 │
@@ -821,22 +968,29 @@ multi-tenant-saas-backend/
 ├── Procfile                        ← gunicorn config.wsgi
 └── manage.py
 ```
+
 ---
-🛠️ Tech Stack
-Technology	Version	Purpose
-Django	6.0.4	Web framework
-Django REST Framework	3.17.1	REST API layer
-SimpleJWT	5.5.1	JWT auth + token blacklist
-drf-spectacular	0.28.0	OpenAPI 3.0 / Swagger docs
-PostgreSQL	16	Production database
-psycopg2-binary	2.9.10	PostgreSQL Python adapter
-python-decouple	3.8	`.env` variable loading
-gunicorn	25.3.0	Production WSGI server
-pytest-django	latest	Testing framework
-GitHub Actions	—	CI/CD pipeline
-Render	—	Cloud deployment platform
+
+## 🛠️ Tech Stack
+
+| Technology | Version | Purpose |
+|---|:---:|---|
+| **Django** | 6.0.4 | Web framework |
+| **Django REST Framework** | 3.17.1 | REST API layer |
+| **SimpleJWT** | 5.5.1 | JWT auth + token blacklist |
+| **drf-spectacular** | 0.28.0 | OpenAPI 3.0 / Swagger docs |
+| **PostgreSQL** | 16 | Production database |
+| **psycopg2-binary** | 2.9.10 | PostgreSQL Python adapter |
+| **python-decouple** | 3.8 | `.env` variable loading |
+| **gunicorn** | 25.3.0 | Production WSGI server |
+| **pytest-django** | latest | Testing framework |
+| **GitHub Actions** | — | CI/CD pipeline |
+| **Render** | — | Cloud deployment platform |
+
 ---
-🔒 Security Checklist
+
+## 🔒 Security Checklist
+
 ```
 [✅] SECRET_KEY loaded from .env (python-decouple)
 [✅] DEBUG=False enforced in production
@@ -853,12 +1007,20 @@ Render	—	Cloud deployment platform
 [✅] .env in .gitignore — never committed
 [✅] 45 security tests including isolation tests
 ```
+
 ---
+
 <div align="center">
-Built by Sagar Kumar
-![GitHub followers](https://img.shields.io/github/followers/sagarkumarr1?style=social)
-![GitHub stars](https://img.shields.io/github/stars/sagarkumarr1/multi-tenant-saas-backend?style=social)
-⭐ If this project helped you, please give it a star!
-🔝 Back to Top
+
+**Built by [Sagar Kumar](https://github.com/sagarkumarr1)**
+
+[![GitHub followers](https://img.shields.io/github/followers/sagarkumarr1?style=social)](https://github.com/sagarkumarr1)
+[![GitHub stars](https://img.shields.io/github/stars/sagarkumarr1/multi-tenant-saas-backend?style=social)](https://github.com/sagarkumarr1/multi-tenant-saas-backend)
+
+**⭐ If this project helped you, please give it a star!**
+
+[🔝 Back to Top](#-multi-tenant-saas-backend)
+
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:1a6fff,100:00d4ff&height=100&section=footer" width="100%"/>
+
 </div>
