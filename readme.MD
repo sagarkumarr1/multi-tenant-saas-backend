@@ -645,42 +645,28 @@ GET /api/user/?search=john&role=USER&ordering=username&page=1  # Combined
 ## 🖼️ Screenshots
 
 ### Swagger UI — API Documentation
-> 📸 **Add Screenshot:** Visit `/api/docs/`, take a screenshot showing endpoint list
-> 
+
 > ![Swagger UI](screenshots/swagger-ui.png)
 
 ### Login Endpoint — Postman
-> 📸 **Add Screenshot:** POST `/api/user/login/` with body and 200 response
->
+
 > ![Login](screenshots/postman-login.png)
 
 ### User List — Paginated Response
-> 📸 **Add Screenshot:** GET `/api/user/` showing paginated JSON response
->
+
 > ![User List](screenshots/postman-user-list.png)
 
 ### Dashboard — Stats Response
-> 📸 **Add Screenshot:** GET `/api/dashboard/` showing stats JSON
->
+
 > ![Dashboard](screenshots/postman-dashboard.png)
 
 ### GitHub Actions — CI Tests Passing
-> 📸 **Add Screenshot:** GitHub → Actions tab → green checkmark
->
+
 > ![CI Tests](screenshots/github-actions.png)
 
 ### Django Admin Panel
-> 📸 **Add Screenshot:** `/admin/` showing Tenants, Users, AuditLogs
->
-> ![Admin Panel](screenshots/django-admin.png)
 
-> 💡 **To add screenshots:**
-> ```bash
-> mkdir screenshots
-> # Add your .png files to the screenshots/ folder
-> git add screenshots/
-> git commit -m "docs: add API screenshots"
-> ```
+> ![Admin Panel](screenshots/django-admin.png)
 
 ---
 
